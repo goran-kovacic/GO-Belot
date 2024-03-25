@@ -4,15 +4,11 @@ type Rezultat struct{
 	Prvi int
 	Drugi int
 	Treci int
-
 }
 
 func (r Rezultat) IsPocetak() bool{ 
 	return r.Prvi == 0 && r.Drugi == 0 && r.Treci == 0
 }
-
-
-
 
 type Entitet struct {
     ID int
@@ -34,21 +30,15 @@ type MjesanjeDvaUnosa struct{
 }
 
 func (m MjesanjeDvaUnosa) GetRezultat() Rezultat{
-
 	return Rezultat{
 		Prvi: m.BodovaPrviUnos + m.ZvanjePrviUnos,
 		Drugi: m.BodovaDrugiUnos + m.ZvanjeDrugiUnos,
 	}
-
 }
 
 type MjesanjeTriUnosa struct{
 	MjesanjeDvaUnosa
-
-	// BodovaPrviUnos  int
-	// BodovaDrugiUnos int
-	// ZvanjePrviUnos  int
-	// ZvanjeDrugiUnos int
+	
 	BodovaTreciUnos int
 	ZvanjeTreciUnos int
 

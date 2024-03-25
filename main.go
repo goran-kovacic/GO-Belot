@@ -16,7 +16,6 @@ func main() {
 	for _, p := range partije {
 		fmt.Println(p)
 	}
-
 }
 
 func kreirajRucno() {
@@ -24,59 +23,67 @@ func kreirajRucno() {
 
 	igrac1 = kreirajIgraca("Tomislav", "Jakopec")
 	igrac2 = kreirajIgraca("Marijan", "Zidar")
-	kreirajPartijuDvaIgracaSTRUCT()
+	igrac3 = kreirajIgraca("Marija", "Zimska")
+	igrac4 = modelStruct.Igrac{
+		Ime: "Anita",
+		Prezime: "Račman",
+		// Entitet: modelStruct.Entitet{ID: 1},
+	}
+	partijaDvaIgraca()
+	partijaTriIgraca()
+	partijaDvaPara()
 }
 
-// func kreirajMjesanjaDvaPara() []model.MjesanjeDvaUnosa {
-// 	// mjesanja := make([]model.Mjesanje, 0)
+func partijaDvaPara(){
+	partija := modelStruct.PartijaDvaPara{}
+	partija.DoKolikoSeIgra = 501
+	partija.Unosi = igrac1
+	partija.Igraci = []modelStruct.Igrac{igrac1, igrac2, igrac3, igrac4}
+	partija.Mjesanja = mjesanjeDvaPara()
+	partije = append(partije, partija)
+}
 
-// 	mjesanja := []model.MjesanjeDvaUnosa{}
+func partijaTriIgraca(){
+	partija := modelStruct.PartijaTriIgraca{}
+	partija.DoKolikoSeIgra = 501
+	partija.Unosi = igrac1
+	partija.Igraci = []modelStruct.Igrac{igrac1, igrac2, igrac3}
+	// partija.Igraci = append(partija.Igraci, igrac1)
+	partija.Mjesanja = mjesanjeTriIgraca()
+	partije = append(partije, partija)
+}
 
-// 	mjesanje1 := model.MjesanjeDvaUnosa{
-// 		BodovaPrviUnos:  10,
-// 		BodovaDrugiUnos: 152,
-// 		ZvanjePrviUnos:  0,
-// 		ZvanjeDrugiUnos: 20,
-// 	}
+func mjesanjeTriIgraca() []modelStruct.Mjesanje{
+	mjesanja := []modelStruct.Mjesanje{}
 
-// 	mjesanja = append(mjesanja, mjesanje1)
+	mjesanje1 := modelStruct.MjesanjeTriUnosa{
+		MjesanjeDvaUnosa: modelStruct.MjesanjeDvaUnosa{
+			BodovaPrviUnos: 10,
+			BodovaDrugiUnos: 76,
+			ZvanjePrviUnos: 0,
+			ZvanjeDrugiUnos: 20,
+		},
+		BodovaTreciUnos: 76,
+	}
+	mjesanja = append(mjesanja, mjesanje1)
 
-// 	mjesanje2 := model.MjesanjeDvaUnosa{
-// 		BodovaPrviUnos:  152,
-// 		BodovaDrugiUnos: 10,
-// 		ZvanjePrviUnos:  0,
-// 		ZvanjeDrugiUnos: 20,
-// 	}
-// 	mjesanja = append(mjesanja, mjesanje2)
+	for i:= 0; i<5; i++{
+		mjesanja = append(mjesanja, mjesanje1)
+	}
 
-// 	fmt.Println(mjesanja)
+	return mjesanja
+}
 
-// 	return mjesanja
-// }
-
-// func kreirajPartijuDvaIgraca() {
-// 	partija := &model.PartijaDvaIgraca{}
-// 	partija.DoKolikoSeIgra = 501
-// 	// partija.Lokacija = *lokacija
-// 	partija.Unosi = *igrac1
-// 	partija.Igraci = []model.Igrac{*igrac1, *igrac2}
-// 	// partija.MjesanjeDvaPara = kreirajMjesanjaDvaPara()
-// 	partija.MjesanjeDvaPara= kreirajMjesanjaDvaPara()
-// 	partije = append(partije, &partija.Partija)
-// }
-
-func kreirajPartijuDvaIgracaSTRUCT() {
+func partijaDvaIgraca() {
 	partija := modelStruct.PartijaDvaIgraca{}
 	partija.DoKolikoSeIgra = 501
 	partija.Unosi = igrac1
 	partija.Igraci = []modelStruct.Igrac{igrac1, igrac2}
-	// partija.MjesanjeDvaPara = kreirajMjesanjaDvaPara()
-	// partija.MjesanjeDvaPara= kreirajMjesanjaDvaPara()
-	partija.Mjesanja = kreirajMjesanjaDvaParaSTRUCT()
+	partija.Mjesanja = mjesanjeDvaPara()
 	partije = append(partije, partija)
 }
 
-func kreirajMjesanjaDvaParaSTRUCT() []modelStruct.Mjesanje {
+func mjesanjeDvaPara() []modelStruct.Mjesanje {
 	// mjesanja := make([]modelStruct.Mjesanje, 0)
 
 	mjesanja := []modelStruct.Mjesanje{}
@@ -90,7 +97,6 @@ func kreirajMjesanjaDvaParaSTRUCT() []modelStruct.Mjesanje {
 		Belot:           false,
 		Entitet:         modelStruct.Entitet{ID: 5},
 	}
-
 	mjesanja = append(mjesanja, mjesanje1)
 
 	mjesanje2 := modelStruct.MjesanjeDvaUnosa{
@@ -101,7 +107,7 @@ func kreirajMjesanjaDvaParaSTRUCT() []modelStruct.Mjesanje {
 	}
 	mjesanja = append(mjesanja, mjesanje2)
 
-	fmt.Println(mjesanja)
+	// fmt.Println(mjesanja)
 
 	return mjesanja
 }
