@@ -1,8 +1,6 @@
 package model
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Partija struct {
 	Entitet
@@ -16,26 +14,26 @@ type Partija struct {
 	MjesanjeDvaPara   []MjesanjeDvaUnosa
 	MjesanjeTriIgraca []MjesanjeTriUnosa
 	MjesanjeDvaIgraca []MjesanjeDvaUnosa
-	
 }
-
-
 
 func (p Partija) String() string {
 	rez := p.GetRezultat()
-	number := len(p.Igraci)
+	// number := len(p.Igraci)
 
-	if number == 2 {
-		
-		return fmt.Sprintf("Partija DVA IGRACA, igra gotova: %v, %s: %d | %s: %d",
-			p.IsIgraGotova(), p.Igraci[0], rez.Prvi, p.Igraci[1], rez.Drugi)
-	} else if number == 3 {
-		return fmt.Sprintf("Partija TRI IGRACA, igra gotova: %v, %s : %d | %s : %d | %s : %d",
-			p.IsIgraGotova(), p.Igraci[0], rez.Prvi, p.Igraci[1], rez.Drugi, p.Igraci[2], rez.Treci)
-	} else {
-		return fmt.Sprintf("Partija DVA PARA, igra gotova: %v, %s i %s : %d | %s i %s : %d",
-			p.IsIgraGotova(), p.Igraci[0], p.Igraci[1], rez.Prvi, p.Igraci[2], p.Igraci[3], rez.Drugi)
-	}
+	// if number == 2 {
+
+	// 	return fmt.Sprintf("Partija DVA IGRACA, igra gotova: %v, %s: %d | %s: %d",
+	// 		p.IsIgraGotova(), p.Igraci[0], rez.Prvi, p.Igraci[1], rez.Drugi)
+	// } else if number == 3 {
+	// 	return fmt.Sprintf("Partija TRI IGRACA, igra gotova: %v, %s : %d | %s : %d | %s : %d",
+	// 		p.IsIgraGotova(), p.Igraci[0], rez.Prvi, p.Igraci[1], rez.Drugi, p.Igraci[2], rez.Treci)
+	// } else {
+	// 	return fmt.Sprintf("Partija DVA PARA, igra gotova: %v, %s i %s : %d | %s i %s : %d",
+	// 		p.IsIgraGotova(), p.Igraci[0], p.Igraci[1], rez.Prvi, p.Igraci[2], p.Igraci[3], rez.Drugi)
+	// }
+
+	return fmt.Sprintf("Partija DVA IGRACA, igra gotova: %v, %s: %d | %s: %d",
+		p.IsIgraGotova(), p.Igraci[0], rez.Prvi, p.Igraci[1], rez.Drugi)
 
 }
 

@@ -14,3 +14,4 @@ func (m MjesanjeDvaUnosa) GetRezultat() Rezultat {
 		Drugi: m.BodovaDrugiUnos + m.ZvanjeDrugiUnos,
 	}
 }
+
