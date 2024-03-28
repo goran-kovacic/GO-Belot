@@ -11,7 +11,7 @@ func (r Rezultat) IsPocetak() bool{
 }
 
 type Entitet struct {
-    ID int
+    Id int
 }
 
 type Mjesanje interface {

@@ -95,7 +95,7 @@ func mjesanjeDvaPara() []modelStruct.Mjesanje {
 		ZvanjeDrugiUnos: 20,
 		Stiglja:         false,
 		Belot:           false,
-		Entitet:         modelStruct.Entitet{ID: 5},
+		Entitet:         modelStruct.Entitet{Id: 5},
 	}
 	mjesanja = append(mjesanja, mjesanje1)
 
